@@ -1,0 +1,239 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+.aquarium {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    min-height: 500px;
+    overflow: hidden;
+    background-image: url("images/sea1.jpg");
+    background-size: cover;
+    background-position: center;
+    transition: background-image 0.6s ease-in-out;
+}
+
+
+.top-bar {
+    position: absolute;
+    z-index: 30;
+    top: 16px;
+    left: 20px;
+    right: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
+}
+
+.top-bar h1 {
+    margin: 0;
+    padding: 10px 18px;
+    color: #ffffff;
+    font-size: clamp(18px, 2.5vw, 28px);
+    text-shadow: 2px 2px 6px rgba(0, 35, 60, 0.8);
+    background: rgba(0, 45, 75, 0.45);
+    backdrop-filter: blur(4px);
+    border-radius: 16px;
+}
+
+.controls {
+    display: flex;
+    gap: 12px;
+    pointer-events: auto;
+}
+
+.controls button {
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 24px;
+    padding: 10px 18px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #0d4a6b;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: all 0.25s ease;
+}
+
+.controls button:hover {
+    transform: translateY(-2px);
+    background: #d4f6ff;
+}
+
+.controls button.active {
+    background: #00b4d8;
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+.creature {
+    position: absolute;
+    z-index: 5;
+    object-fit: contain;
+    height: auto;
+    pointer-events: none;
+}
+
+.shark {
+    width: 240px;
+    top: 40%;
+    left: -260px;
+    z-index: 8;
+    animation: sharkSwim 7s linear infinite;
+}
+
+.turtle {
+    width: 145px;
+    top: 68%;
+    left: -180px;
+    z-index: 6;
+    animation: turtleSwim 24s linear infinite;
+}
+
+.diver {
+    width: 115px;
+    z-index: 7;
+}
+
+.diver-one {
+    top: 22%;
+    left: 14%;
+    animation: diverSwim 13s ease-in-out infinite;
+}
+
+.diver-two {
+    top: 52%;
+    right: 15%;
+    animation: diverSwim 16s ease-in-out infinite reverse;
+}
+
+.diver-three {
+    top: 34%;
+    left: 48%;
+    animation: diverSwim 14s ease-in-out infinite 2s;
+}
+
+.fish {
+    width: 170px;
+    z-index: 4;
+}
+
+.fish-one {
+    top: 18%;
+    left: -200px;
+    animation: fishSwimRight 18s linear infinite;
+}
+
+.fish-two {
+    top: 75%;
+    right: -200px;
+    animation: fishSwimLeft 20s linear infinite;
+}
+
+
+@keyframes sharkSwim {
+    0%   { left: -260px; transform: scaleX(1); }
+    48%  { left: calc(100% + 20px); transform: scaleX(1); }
+    50%  { left: calc(100% + 20px); transform: scaleX(-1); }
+    98%  { left: -260px; transform: scaleX(-1); }
+    100% { left: -260px; transform: scaleX(1); }
+}
+
+@keyframes turtleSwim {
+    0%   { left: -180px; transform: scaleX(1); }
+    48%  { left: calc(100% + 20px); transform: scaleX(1); }
+    50%  { left: calc(100% + 20px); transform: scaleX(-1); }
+    98%  { left: -180px; transform: scaleX(-1); }
+    100% { left: -180px; transform: scaleX(1); }
+}
+
+@keyframes diverSwim {
+    0%, 100% { transform: translate(0, 0) rotate(-3deg); }
+    50%      { transform: translate(25px, -40px) rotate(4deg); }
+}
+
+@keyframes fishSwimRight {
+    0%   { left: -200px; transform: scaleX(1) translateY(0); }
+    50%  { transform: scaleX(1) translateY(-25px); }
+    100% { left: calc(100% + 20px); transform: scaleX(1) translateY(0); }
+}
+
+@keyframes fishSwimLeft {
+    0%   { right: -200px; transform: scaleX(-1) translateY(0); }
+    50%  { transform: scaleX(-1) translateY(25px); }
+    100% { right: calc(100% + 20px); transform: scaleX(-1) translateY(0); }
+}
+
+.bubble {
+    position: absolute;
+    z-index: 3;
+    border-radius: 50%;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.8), rgba(180, 240, 255, 0.25));
+    pointer-events: none;
+}
+
+
+.bubble-up {
+    bottom: -40px;
+    animation: bubbleGoUp linear infinite;
+}
+
+
+.bubble-down {
+    top: -40px;
+    animation: bubbleGoDown linear infinite;
+}
+
+.b1  { left: 10%; width: 18px; height: 18px; animation-duration: 6s; }
+.b2  { left: 28%; width: 12px; height: 12px; animation-duration: 8s; animation-delay: 1.5s; }
+.b3  { left: 46%; width: 20px; height: 20px; animation-duration: 7s; animation-delay: 0.5s; }
+.b4  { left: 68%; width: 14px; height: 14px; animation-duration: 9s; animation-delay: 2s; }
+.b5  { left: 88%; width: 16px; height: 16px; animation-duration: 6.5s; animation-delay: 1s; }
+
+.b6  { left: 18%; width: 15px; height: 15px; animation-duration: 7.5s; }
+.b7  { left: 37%; width: 11px; height: 11px; animation-duration: 9.5s; animation-delay: 1s; }
+.b8  { left: 57%; width: 18px; height: 18px; animation-duration: 8s; animation-delay: 2.5s; }
+.b9  { left: 77%; width: 13px; height: 13px; animation-duration: 7s; animation-delay: 0.8s; }
+.b10 { left: 94%; width: 16px; height: 16px; animation-duration: 8.5s; animation-delay: 1.8s; }
+
+@keyframes bubbleGoUp {
+    0%   { bottom: -40px; opacity: 0; }
+    15%  { opacity: 0.9; }
+    85%  { opacity: 0.9; }
+    100% { bottom: 105%; opacity: 0; }
+}
+
+@keyframes bubbleGoDown {
+    0%   { top: -40px; opacity: 0; }
+    15%  { opacity: 0.9; }
+    85%  { opacity: 0.9; }
+    100% { top: 105%; opacity: 0; }
+}
+
+
+.sea-floor {
+    position: absolute;
+    z-index: 2;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    padding-bottom: 6px;
+    background: linear-gradient(transparent, rgba(0, 30, 50, 0.5));
+    font-size: 36px;
+    pointer-events: none;
+}
