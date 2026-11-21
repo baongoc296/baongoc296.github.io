@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hồ Cá Vui Nhộn</title>
+    <link rel="stylesheet" href="mystyle.css">
+</head>
+<body>
+    <div class="aquarium" id="aquarium">
+        <div class="top-bar">
+            <h1>🐠 Hồ Cá Vui Nhộn</h1>
+            <div class="controls">
+                <button id="bgBtn" type="button">🖼️ Đổi cảnh nền (1/4)</button>
+                <button id="musicBtn" type="button">🔇 Bật nhạc</button>
+            </div>
+        </div>
+
+        <img src="images/shark.gif" onerror="this.src='images/shark.png'" alt="Cá mập" class="creature shark">
+        <img src="images/turtle.gif" onerror="this.src='images/turtle.png'" alt="Rùa biển" class="creature turtle">
+
+        <img src="images/diver1.gif" onerror="this.src='images/diver1.png'" alt="Thợ lặn 1" class="creature diver diver-one">
+        <img src="images/diver2.gif" onerror="this.src='images/diver2.png'" alt="Thợ lặn 2" class="creature diver diver-two">
+        <img src="images/diver3.gif" onerror="this.src='images/diver3.png'" alt="Thợ lặn 3" class="creature diver diver-three">
+
+        <img src="images/goldFishSchool.gif" onerror="this.src='images/goldFishSchool.png'" alt="Đàn cá vàng" class="creature fish fish-one">
+        <img src="images/faintSchool.gif" onerror="this.src='images/faintSchool.png'" alt="Đàn cá xanh" class="creature fish fish-two">
+
+        <div class="bubble bubble-up b1"></div>
+        <div class="bubble bubble-up b2"></div>
+        <div class="bubble bubble-up b3"></div>
+        <div class="bubble bubble-up b4"></div>
+        <div class="bubble bubble-up b5"></div>
+
+        <div class="bubble bubble-down b6"></div>
+        <div class="bubble bubble-down b7"></div>
+        <div class="bubble bubble-down b8"></div>
+        <div class="bubble bubble-down b9"></div>
+        <div class="bubble bubble-down b10"></div>
+
+        <div class="sea-floor">
+            <span>🪸</span><span>🌿</span><span>🐚</span><span>🪨</span><span>🌿</span><span>🪸</span>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="audio/nhacnen.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const aquarium = document.getElementById("aquarium");
+        const bgBtn = document.getElementById("bgBtn");
+
+        const backgrounds = [
+            "images/sea1.jpg",
+            "images/sea2.jpg",
+            "images/sea3.jpg",
+            "images/sea4.jpg"
+        ];
+        let currentBgIndex = 0;
+
+        bgBtn.addEventListener("click", () => {
+            currentBgIndex = (currentBgIndex + 1) % backgrounds.length;
+            aquarium.style.backgroundImage = `url("${backgrounds[currentBgIndex]}")`;
+            bgBtn.textContent = `🖼️ Đổi cảnh nền (${currentBgIndex + 1}/${backgrounds.length})`;
+        });
+
+        const musicBtn = document.getElementById("musicBtn");
+        const bgMusic = document.getElementById("bgMusic");
+        let isPlaying = false;
+        let audioCtx = null;
+        let synthInterval = null;
+        
+        function startFallbackMusic() {
+            const AudioContext = window.AudioContext || window.webkitAudioContext;
+            if (!audioCtx) audioCtx = new AudioContext();
+            if (audioCtx.state === "suspended") audioCtx.resume();
+
+            const notes = [261.63, 329.63, 392.00, 493.88, 523.25, 493.88, 392.00, 329.63];
+            let step = 0;
+
+            synthInterval = setInterval(() => {
+                if (!isPlaying) return;
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                osc.type = "sine";
+                osc.frequency.value = notes[step % notes.length];
+
+                gain.gain.setValueAtTime(0.08, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.8);
+
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.85);
+                step++;
+            }, 600);
+        }
+
+        function stopFallbackMusic() {
+            if (synthInterval) {
+                clearInterval(synthInterval);
+                synthInterval = null;
+            }
+        }
+
+        musicBtn.addEventListener("click", () => {
+            if (!isPlaying) {
+                isPlaying = true;
+                musicBtn.textContent = "🔊 Tắt nhạc";
+                musicBtn.classList.add("active");
+
+                // Ưu tiên phát file mp3, nếu lỗi hoặc chưa có file thì phát nhạc tổng hợp
+                bgMusic.play().catch(() => {
+                    startFallbackMusic();
+                });
+            } else {
+                isPlaying = false;
+                musicBtn.textContent = "🔇 Bật nhạc";
+                musicBtn.classList.remove("active");
+
+                bgMusic.pause();
+                stopFallbackMusic();
+            }
+        });
+    
+    </script>
+</body>
+</html>

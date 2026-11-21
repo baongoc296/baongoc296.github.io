@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Chủ - Nộp Bài</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #0b3954, #087e8b);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .box {
+            width: 100%;
+            max-width: 650px;
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.25);
+        }
+
+        h1 {
+            margin: 0 0 8px;
+            color: #0b3954;
+            font-size: 26px;
+        }
+
+        p {
+            margin: 0 0 22px;
+            color: #4a607a;
+            font-size: 14.5px;
+        }
+
+        .links {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 14px;
+        }
+
+        .links a {
+            display: block;
+            padding: 15px 18px;
+            border-radius: 12px;
+            background: #f0f7fc;
+            border: 1px solid #cfe3f3;
+            color: #0b3954;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+        }
+
+        .links a:hover {
+            background: #087e8b;
+            color: #ffffff;
+            transform: translateY(-2px);
+        }
+
+        .note {
+            margin-top: 20px;
+            font-size: 12.5px;
+            color: #6c7a89;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1>🏠 Trang Chủ Nộp Bài</h1>
+        <p>Chọn mục bên dưới để xem CV cá nhân và các thư mục/trang con của dự án:</p>
+
+        <div class="links">
+        <a href="cv.html">📄 CV Cá Nhân</a>
+        <a href="ho_ca_vui_nhon/ho_ca.html">🐠 Hồ Cá Vui Nhộn</a>
+        <a href="ho_ca_vui_nhon/images">🌐 Hình ảnh con cá</a>
+        <a href="ho_ca_vui_nhon/Audio">🎵 Âm nhạc dưới biển</a>
+    </div>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Cá Nhân</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: #fff0f6;
+            color: #3b1c2a;
+            padding: 24px;
+        }
+
+        .cv-wrapper {
+            max-width: 1050px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 12px 32px rgba(214, 51, 108, 0.15);
+            overflow: hidden;
+            border: 1px solid #ffd6e7;
+        }
+
+        .top-nav {
+            background: #c9184a;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .top-nav span {
+            color: #fff0f6;
+            font-weight: 600;
+            font-size: 14px;
+        }
+
+        .top-nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            background: rgba(255, 255, 255, 0.18);
+            padding: 7px 14px;
+            border-radius: 8px;
+            transition: background 0.2s ease;
+        }
+
+        .top-nav a:hover {
+            background: rgba(255, 255, 255, 0.32);
+        }
+
+        /* Chia 2 cột tỉ lệ 40% - 60% */
+        .cv-container {
+            display: flex;
+            min-height: 680px;
+        }
+
+        .col-left {
+            width: 40%;
+            background: linear-gradient(180deg, #e64980 0%, #c2255c 100%);
+            color: #ffffff;
+            padding: 32px 26px;
+        }
+
+        .col-right {
+            width: 60%;
+            padding: 32px 30px;
+            background: #ffffff;
+        }
+
+        .avatar-box {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+
+        .avatar-img {
+            width: 124px;
+            height: 124px;
+            margin: 0 auto 14px;
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: top center;
+            border: 4px solid #ffdeeb;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+            display: block;
+            background: #fff0f6;
+        }
+
+        .name {
+            margin: 0;
+            font-size: 24px;
+            letter-spacing: 0.4px;
+        }
+
+        .role {
+            margin: 6px 0 0;
+            color: #ffdeeb;
+            font-size: 14px;
+        }
+
+        .left-section {
+            margin-top: 24px;
+        }
+
+        .left-section h3 {
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffd6e7;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+            padding-bottom: 6px;
+            margin-bottom: 12px;
+        }
+
+        .left-section ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 14px;
+            line-height: 1.75;
+        }
+
+        .right-section {
+            margin-bottom: 26px;
+        }
+
+        .right-section h2 {
+            font-size: 18px;
+            color: #c2255c;
+            border-left: 4px solid #f06595;
+            background: #fff5f8;
+            padding: 6px 12px;
+            border-radius: 0 8px 8px 0;
+            margin: 0 0 12px;
+        }
+
+        .right-section p, .right-section li {
+            font-size: 14.5px;
+            line-height: 1.65;
+            color: #4a2534;
+        }
+
+        .right-section ul {
+            margin: 6px 0 0;
+            padding-left: 20px;
+        }
+
+        .item-title {
+            font-weight: 700;
+            color: #86133b;
+        }
+
+        @media (max-width: 768px) {
+            .cv-container {
+                flex-direction: column;
+            }
+            .col-left, .col-right {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-wrapper">
+        <div class="top-nav">
+            <span>📄 CURRICULUM VITAE</span>
+            <a href="index.html">← Về Trang Chủ</a>
+        </div>
+
+        <div class="cv-container">
+            <!-- Cột trái 40% -->
+            <aside class="col-left">
+                <div class="avatar-box">
+                    <img src="image/anhthe.jpg" alt="Ảnh thẻ cá nhân" class="avatar-img">
+                    <h1 class="name">Họ Và Tên: Phạm Nguyễn Bảo Ngọc</h1>
+                    <p class="role">Sinh viên</p>
+                </div>
+
+                <div class="left-section">
+                    <h3>Thông tin liên hệ</h3>
+                    <ul>
+                        <li>📧 Email: gauu2906@gmail.com</li>
+                        <li>📱 Điện thoại: 0816432971</li>
+                        <li>📍 Địa chỉ: TP. Hồ Chí Minh</li>
+                        <li>🌐 GitHub: github.com/baongoc296</li>
+                    </ul>
+                </div>
+
+                <div class="left-section">
+                    <h3>Kỹ năng</h3>
+                    <ul>
+                        <li>• HTML5, CSS3 cơ bản</li>
+                        <li>• C++, Java cơ bản</li>
+                        <li>• Làm việc nhóm & tự học</li>
+                        <li>• Tin học văn phòng</li>
+                    </ul>
+                </div>
+
+                <div class="left-section">
+                    <h3>Ngoại ngữ & Sở thích</h3>
+                    <ul>
+                        <li>• Tiếng Anh: Đọc hiểu tài liệu cơ bản</li>
+                        <li>• Sở thích: Thiết kế web, nghe nhạc, khám phá công nghệ</li>
+                    </ul>
+                </div>
+            </aside>
+            <!-- Cột phải 60% -->
+            <main class="col-right">
+                <section class="right-section">
+                    <h2>Mục tiêu nghề nghiệp</h2>
+                    <p>
+                        Mong muốn áp dụng kiến thức đã học vào xây dựng các giao diện web trực quan,
+                        rèn luyện kỹ năng lập trình và hoàn thiện tư duy giải quyết vấn đề trong môi trường học tập và làm việc thực tế.
+                    </p>
+                </section>
+
+                <section class="right-section">
+                    <h2>Học vấn</h2>
+                    <p>
+                        <span class="item-title">Cử nhân / Đại học</span> — Chuyên ngành của bạn<br>
+                        <em>Thời gian: 2026 – Hiện tại</em>
+                    </p>
+                    <ul>
+                        <li>Hoàn thành các môn học nền tảng và bài thực hành thiết kế giao diện web.</li>
+                    </ul>
+                </section>
+
+                <section class="right-section">
+                    <h2>Dự án & Bài tập nổi bật</h2>
+                    <p>
+                        <span class="item-title">Website Hồ Cá Vui Nhộn</span><br>
+                        <em>HTML, CSS, JavaScript</em>
+                    </p>
+                    <ul>
+                        <li>Thiết kế hiệu ứng chuyển động sinh vật, bong bóng dọc và bảng điều khiển đổi cảnh nền / bật tắt nhạc.</li>
+                    </ul>
+                </section>
+
+                <section class="right-section">
+                    <h2>Hoạt động & Kinh nghiệm</h2>
+                    <ul>
+                        <li>Tham gia bài tập nhóm, phối hợp phân chia công việc và quản lý mã nguồn trên GitHub.</li>
+                    </ul>
+                </section>
+            </main>
+        </div>
+    </div>
+</body>
+</html>
