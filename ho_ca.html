@@ -110,7 +110,6 @@
                 musicBtn.textContent = "🔊 Tắt nhạc";
                 musicBtn.classList.add("active");
 
-                // Ưu tiên phát file mp3, nếu lỗi hoặc chưa có file thì phát nhạc tổng hợp
                 bgMusic.play().catch(() => {
                     startFallbackMusic();
                 });

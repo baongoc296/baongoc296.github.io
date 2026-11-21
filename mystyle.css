@@ -22,7 +22,7 @@ html, body {
     transition: background-image 0.6s ease-in-out;
 }
 
-/* Thanh tiêu đề và cụm nút góc trên cùng bên phải */
+
 .top-bar {
     position: absolute;
     z-index: 30;
@@ -76,7 +76,6 @@ html, body {
     border-color: #ffffff;
 }
 
-/* Định dạng chung cho các sinh vật (hỗ trợ ảnh GIF mượt mà) */
 .creature {
     position: absolute;
     z-index: 5;
@@ -85,7 +84,6 @@ html, body {
     pointer-events: none;
 }
 
-/* 1. Cá mập bơi nhanh nhất (7 giây/vòng) */
 .shark {
     width: 240px;
     top: 40%;
@@ -94,7 +92,6 @@ html, body {
     animation: sharkSwim 7s linear infinite;
 }
 
-/* 2. Rùa biển bơi chậm hơn cá mập nhiều (24 giây/vòng) */
 .turtle {
     width: 145px;
     top: 68%;
@@ -103,7 +100,6 @@ html, body {
     animation: turtleSwim 24s linear infinite;
 }
 
-/* 3. Thợ lặn di chuyển chậm rãi (12s - 16s) */
 .diver {
     width: 115px;
     z-index: 7;
@@ -127,7 +123,6 @@ html, body {
     animation: diverSwim 14s ease-in-out infinite 2s;
 }
 
-/* 4. Đàn cá */
 .fish {
     width: 170px;
     z-index: 4;
@@ -145,7 +140,7 @@ html, body {
     animation: fishSwimLeft 20s linear infinite;
 }
 
-/* Keyframes chuyển động của sinh vật */
+
 @keyframes sharkSwim {
     0%   { left: -260px; transform: scaleX(1); }
     48%  { left: calc(100% + 20px); transform: scaleX(1); }
@@ -179,7 +174,6 @@ html, body {
     100% { right: calc(100% + 20px); transform: scaleX(-1) translateY(0); }
 }
 
-/* Bong bóng chỉ di chuyển thẳng đứng (lên và xuống) */
 .bubble {
     position: absolute;
     z-index: 3;
@@ -189,13 +183,13 @@ html, body {
     pointer-events: none;
 }
 
-/* Bong bóng bay từ dưới lên */
+
 .bubble-up {
     bottom: -40px;
     animation: bubbleGoUp linear infinite;
 }
 
-/* Bong bóng chìm từ trên xuống */
+
 .bubble-down {
     top: -40px;
     animation: bubbleGoDown linear infinite;
@@ -227,7 +221,7 @@ html, body {
     100% { top: 105%; opacity: 0; }
 }
 
-/* Đáy biển */
+
 .sea-floor {
     position: absolute;
     z-index: 2;
